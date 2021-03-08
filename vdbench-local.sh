@@ -5,8 +5,8 @@ testmount=$1
 
 FILENAME="$testmount/vdbench/azure-clients.conf"
 
-for vm in $HOME/nodefile; do
-    ssh $vm "sudo yum install -y openjdk; chmod -R /mnt/resource"
+for vm in `cat $HOME/nodefile`; do
+    ssh $vm "sudo yum install -y java-latest-openjdk ; sudo chmod -R 777 /mnt/resource"
 done
 
 # Create the associative array that contains the job name and threads per host values
