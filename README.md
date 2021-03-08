@@ -10,21 +10,23 @@ Accept terms and download `vdbench50407.zip` from [Oracle](https://www.oracle.co
 SSH to your cluster scheduler node (aka *head node*) and run the following commands:
 
   ```bash
-  mkdir -p /shared/apps/vdbench
+  sudo mkdir -p /shared/apps/vdbench
+  sudo chmod 777 /shared/apps/vdbench
   git clone https://github.com/themorey/cyclecloud-vdbench.git /shared/apps/vdbench
+  #NOTE:  install git if needed:  sudo yum install -y git
   ```
 
 Copy (ie. scp) *vdbench50407.zip* to your scheduler node and unzip it into `/shared/apps/vdbench`...ie:
 
   ```bash
-  unzip vdbench50407.zip -d /shared/apps/vdbench
+  sudo unzip vdbench50407.zip -d /shared/apps/vdbench/
   ```
   
 Run the following commands to unzip the filesystem tests into the appropriate directory:
 
   ```bash
-  mkdir -p /shared/apps/vdbench/benchmarks/vdbench/
-  unzip /shared/apps/vdbench/filesys.zip -d /shared/apps/vdbench/benchmarks/vdbench/
+  sudo mkdir -p /shared/apps/vdbench/benchmarks/vdbench/
+  sudo unzip /shared/apps/vdbench/filesys.zip -d /shared/apps/vdbench/benchmarks/vdbench/
   sudo chmod -R +x /shared/apps/vdbench
   ```
 
@@ -34,10 +36,10 @@ The script named *vdbench-sbatch.sh* will schedule this job to run across 24 exe
 
   ```bash
   # change partition from default to htc
-  sed 's/##SBATCH --partition=default/#SBATCH --partition=htc/g' /shared/apps/vdbench/vdbench-sbatch.sh
+  sudo sed -i 's/##SBATCH --partition=default/#SBATCH --partition=htc/g' /shared/apps/vdbench/vdbench-sbatch.sh
   
   # change # of execute nodes from 24 to 12
-  sed 's/#SBATCH -N 24/#SBATCH -N 12/g' /shared/apps/vdbench/vdbench-sbatch.sh
+  sudo sed -i 's/#SBATCH -N 24/#SBATCH -N 12/g' /shared/apps/vdbench/vdbench-sbatch.sh
   ```
 
 Run the following command as follows to submit the job to Slurm:
