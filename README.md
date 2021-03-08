@@ -53,3 +53,5 @@ In the above submission example the argument `/data` is the mountpoint to benchm
 ## Results
 
 This will write test data to `/data/vdbench` and at the end write output/error files to `/data/vdbench-output` (assuming your test mountpoint is `/data`)
+
+__NOTE:__  The *vdbench-local.sh* script uses the local ephemeral disk on the compute VM.  If usiing a VM size without an ephemeral disk you will need to modify the script to a supported path for writing the output file
