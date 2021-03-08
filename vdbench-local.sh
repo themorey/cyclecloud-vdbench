@@ -5,7 +5,7 @@ testmount=$1
 
 FILENAME="$testmount/vdbench/azure-clients.conf"
 
-for vm in $FILENAME; do
+for vm in $HOME/nodefile; do
     ssh $vm "sudo yum install -y openjdk; chmod -R /mnt/resource"
 done
 
