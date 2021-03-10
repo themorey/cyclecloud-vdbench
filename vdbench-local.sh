@@ -5,9 +5,9 @@ testmount=$1
 
 FILENAME="$testmount/vdbench/azure-clients.conf"
 
-for vm in `cat $HOME/nodefile`; do
-    ssh $vm "sudo yum install -y java-latest-openjdk ; sudo chmod -R 777 /mnt/resource"
-done
+# Install pssh and use it to install openjdk on all the nodes in the Slurm job
+sudo yum install -y pssh
+pssh -i -h nodefile "sudo yum install -y java-latest-openjdk ; sudo chmod -R 777 /mnt/resource"
 
 # Create the associative array that contains the job name and threads per host values
 declare -A threadsperhost
