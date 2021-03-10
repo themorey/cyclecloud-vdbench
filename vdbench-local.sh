@@ -25,6 +25,6 @@ for K in "${orderjobs[@]}"; do
     /shared/apps/vdbench/vdbench -f /shared/apps/vdbench/benchmarks/vdbench/filesys/$K includeFile=$FILENAME lun=$testmount/vdbench threadsPerHost=${threadsperhost[$K]} -o /mnt/resource/job_${K}_node_$(jetpack config hostname)_$(date +"%Y%m%d_%I%M%p").out
     wait
 done
-
-cp /mnt/resource/{*.out,*.err} $testmount/vdbench-output/
+ 
+cp -R /mnt/resource/{*.out,*.err} $testmount/vdbench-output/
 rm -rf $testmount/vdbench/fsd*
