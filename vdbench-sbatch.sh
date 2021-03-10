@@ -2,9 +2,8 @@
 #SBATCH --job-name=nfs-vdbench
 ##SBATCH --partition=default
 #SBATCH -N 24
-##SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=2
-##SBATCH -t 04:00:00 # time required, here it is 4 hours
+#SBATCH --cpus-per-task=4
+#SBATCH --exclusive
 
 # arg: $1 = NFS mountpoint to test (ie. /avere )
 testmount=$1
