@@ -26,6 +26,6 @@ for K in "${orderjobs[@]}"; do
     wait
 done
  
-sudo mkdir $testmount/vdbench-output/vdbench-out$SLURM_JOB_ID-$(date +"%Y%m%d_%I%M%p")
-cp -R /mnt/resource/{*.out,*.err} $testmount/vdbench-output/
+sudo mkdir $testmount/vdbench-output/vdbench-out-$SLURM_JOB_ID
+cp -R /mnt/resource/{*.out,*.err} $testmount/vdbench-output/vdbench-out-$SLURM_JOB_ID/
 rm -rf $testmount/vdbench/fsd*
