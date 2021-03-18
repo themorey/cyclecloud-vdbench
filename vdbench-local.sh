@@ -27,5 +27,6 @@ for K in "${orderjobs[@]}"; do
 done
  
 sudo mkdir $testmount/vdbench-output/vdbench-out-$SLURM_JOB_ID
+sudo chmod 777 $testmount/vdbench-output/vdbench-out-$SLURM_JOB_ID
 cp -R /mnt/resource/{*.out,*.err} $testmount/vdbench-output/vdbench-out-$SLURM_JOB_ID/
 rm -rf $testmount/vdbench/fsd*
