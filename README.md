@@ -42,7 +42,9 @@ The script named *vdbench-sbatch.sh* will schedule this job to run across 24 exe
   sudo sed -i 's/#SBATCH -N 24/#SBATCH -N 12/g' /shared/apps/vdbench/vdbench-sbatch.sh
   ```
 
-Run the following command as follows to submit the job to Slurm:
+Run the following command as follows to submit the job to Slurm:  
+
+  _**NOTE**:  Run with a user account that has passwordless sudo as the scripts need to mkdir, install openjdk, etc_
 
   ```bash
   sbatch /shared/apps/vdbench/vdbench-sbatch.sh /data
