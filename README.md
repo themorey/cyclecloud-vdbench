@@ -5,6 +5,8 @@ This repo will run vdbench against a storage target using an Azure CycleCloud co
 ## Download vdbench
 Accept terms and download `vdbench50407.zip` from [Oracle](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
 
+_**NOTE**: The vdbench User Guide is also available on the Oracle download page_
+
 
 ## Stage files
 SSH to your cluster scheduler node (aka *head node*) and run the following commands:
