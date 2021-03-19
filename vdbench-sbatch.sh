@@ -14,8 +14,7 @@ if [ -d "$testmount/vdbench" ]; then
     echo "$testmount/vdbench exists"
 else
     mkdir $testmount/vdbench
-    mkdir $testmount/vdbench-output
-    chmod 777 $testmount/vdbench*
+    chmod -R 777 $testmount/vdbench
 fi
 
 NODE_PREFIX="host"
